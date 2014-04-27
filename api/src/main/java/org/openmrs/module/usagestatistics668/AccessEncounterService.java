@@ -5,16 +5,17 @@
  */
 package org.openmrs.module.usagestatistics668;
 
+import org.openmrs.api.APIException;
 import org.openmrs.api.OpenmrsService;
 
 /**
  *
- * @author jonathan
+ * @author Anthony Lee
  */
-public interface AccessOrderService extends OpenmrsService {
+public interface AccessEncounterService extends OpenmrsService {
 
-    public AccessOrder getAccessOrder(Integer id);
+    public AccessEncounter getAccessEncounter(Integer id);
     
-    public AccessOrder saveAccessOrder(AccessOrder accessOrder);
+    public void saveAccessEncounter(AccessEncounter accessEncounter) throws APIException;
 
 }

@@ -7,7 +7,7 @@
 	<version>0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Usage Statistics 668</name>
-	<description>Parent project for Usage Statistics 668 Module</description>
+	<description>The Usage Statistics 668 Module tracks the access of patient records</description>
 
 	<url>http://wiki.openmrs.org/docs/Basic+Module</url>
 

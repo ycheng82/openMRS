@@ -6,26 +6,22 @@
 
 package org.openmrs.module.usagestatistics668.db;
 
-import java.util.List;
-import org.openmrs.Patient;
-import org.openmrs.api.db.DAOException;
 import org.openmrs.module.usagestatistics668.AccessEncounter;
-import org.openmrs.module.usagestatistics668.AccessPatient;
 
 /**
  *
- * @author Ye
+ * @author Anthony Lee
  */
 /**
  * This is the DAO interface. This is never used by the developer, but instead
  * the {@link NoteService} calls it (and developers call the NoteService)
  */
-public interface AccessPatientDAO {
+public interface AccessEncounterDAO {
 
-   public AccessPatient getAccessPatient(Integer id);
+   public AccessEncounter getAccessEncounter(Integer id);
    
-   public void saveAccessPatient(AccessPatient accessPatient)throws DAOException;
+   public void saveAccessEncounter(AccessEncounter accessEncounter);
+   
 
 
 }
-

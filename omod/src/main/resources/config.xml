@@ -49,11 +49,11 @@
         <class>org.openmrs.module.usagestatistics668.advice.PatientServiceAdvice</class>
     </advice>   
    <advice>
-        <point>org.openmrs.api.EncounterService</point>
+        <point>org.openmrs.api.PatientService</point>
         <class>org.openmrs.module.usagestatistics668.advice.EncounterServiceAdvice</class>
-    </advice>      
-	
-        
+   </advice>      
+
+   
     <privilege>
         <name>Pharm add prescription</name>
         <description>Pharm add prescription</description>
@@ -77,12 +77,13 @@
         <lang>es</lang>
         <file>messages_es.properties</file>
     </messages>
-    
     -->
-	<mappingFiles>
-		AccessPatient.hbm.xml
-	</mappingFiles>
-    <!-- /Internationalization -->
+   
+   <mappingFiles>
+      AccessPatient.hbm.xml 
+      AccessEncounter.hbm.xml
+   </mappingFiles>
+   <!-- /Internationalization -->
 
 </module>
 

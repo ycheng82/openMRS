@@ -3,19 +3,21 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
 
+<!-- author: Anthony Lee -->
+
 <hibernate-mapping package="org.openmrs.module.usagestatistics668">
 	
-	<class name="AccessOrder" table="access_order">
+	<class name="AccessEncounter" table="access_encounter">
 
 		<id name="id" type="int" column="id" unsaved-value="0">
 			<generator class="native" />
 		</id>
 		
-		<property name="date" not-null="true" type="java.sql.Date" column="date" />
+		<property name="timestamp" not-null="true" type="java.util.Date" column="timestamp" />
 		
-		<property name="order_id" not-null="true" type="int" column="order_id" />
+		<property name="encounter_id" not-null="true" type="int" column="encounter_id" />
 		
-		<property name="view_edited" not-null="true" type="char" column="viewed_edited" />
+		<property name="access_type" not-null="true" type="java.lang.String" column="access_type" />
 		
 		<property name="user_id" not-null="true" type="int" column="user_id" />
 		
