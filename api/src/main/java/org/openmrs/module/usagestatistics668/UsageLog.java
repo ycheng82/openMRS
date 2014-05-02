@@ -52,7 +52,26 @@ public class UsageLog {
 	public static void logEvent(Patient patient, Type type, String query) {
 		User user = Context.getAuthenticatedUser();
 		
-		logEvent(user, patient, null, type, query);
+		//logEvent(user, patient, null, type, query);
+                AccessPatientService svc = (AccessPatientService)Context.getService(AccessPatientService.class);
+		AccessPatient ap = new AccessPatient();
+		
+		// Set created / updated / voided flags
+		if (type == Type.CREATED){
+			ap.setAccess_type("created");
+                }
+		else if (type == Type.UPDATED) {
+			ap.setAccess_type("updated");
+                }
+                else if (type == Type.VOIDED){
+			ap.setAccess_type("voided");
+                }
+
+		// Update the time of the recent event
+		ap.setTimestamp(new Date());
+                ap.setUser_id(user.getUserId());
+                ap.setPatient_id(patient.getPersonId());
+	        svc.saveAccessPatient(ap);
 	}
 	
 	/**
@@ -64,7 +83,7 @@ public class UsageLog {
 		User user = encounter.getCreator();
 		Patient patient = encounter.getPatient();
 		
-		logEvent(user, patient, encounter, type, null);
+		//logEvent(user, patient, encounter, type, null);
 	}
 	
 	/**
@@ -75,7 +94,7 @@ public class UsageLog {
 	 * @param type the type of usage event
 	 * @param query the search query used to find this patient
 	 */
-	private static void logEvent(User user, Patient patient, Encounter encounter, Type type, String query) {
+	/*private static void logEvent(User user, Patient patient, Encounter encounter, Type type, String query) {
 		if (patient == null) {
 			log.warn("Attempt to log usage on null patient");
 			return;
@@ -119,5 +138,5 @@ public class UsageLog {
               ap.setUser_id(user.getUserId());
               ap.setPatient_id(patient.getPersonId());
 	      svc.saveAccessPatient(ap);
-	}
+	}*/
 }

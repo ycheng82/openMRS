@@ -6,10 +6,7 @@
 
 package org.openmrs.module.usagestatistics668.db;
 
-import java.util.List;
-import org.openmrs.Patient;
 import org.openmrs.api.db.DAOException;
-import org.openmrs.module.usagestatistics668.AccessEncounter;
 import org.openmrs.module.usagestatistics668.AccessPatient;
 
 /**
