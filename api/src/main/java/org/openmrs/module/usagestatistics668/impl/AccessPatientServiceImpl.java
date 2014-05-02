@@ -1,5 +1,7 @@
 package org.openmrs.module.usagestatistics668.impl;
 
+import java.util.Date;
+import java.util.List;
 import org.openmrs.api.APIException;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.usagestatistics668.AccessPatient;
@@ -58,6 +60,11 @@ public class AccessPatientServiceImpl extends BaseOpenmrsService implements Acce
 	public void saveAccessPatient(AccessPatient accessPatient)throws APIException {
 		dao.saveAccessPatient(accessPatient);
 	}
+
+        @Override
+        public List<Object[]> getMostViewedPatient(Date since, int maxResults) throws APIException {
+            return dao.MostViewedPatient(since, maxResults);
+    }
 
 }
 

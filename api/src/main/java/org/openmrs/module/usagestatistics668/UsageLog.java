@@ -17,6 +17,7 @@ package org.openmrs.module.usagestatistics668;
  * author: Ye
  */
 import java.util.Date;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -24,6 +25,7 @@ import org.openmrs.Encounter;
 import org.openmrs.Patient;
 import org.openmrs.User;
 import org.openmrs.api.context.Context;
+import org.openmrs.module.usagestatistics668.util.StatsUtils;
 import org.openmrs.util.OpenmrsConstants;
 
 /**
@@ -76,6 +78,9 @@ public class UsageLog {
                 ap.setPatient_id(patient.getPersonId());
 	        svc.saveAccessPatient(ap);
                 System.out.println("---------------access patient data saved------------");
+                Date monthAgo = StatsUtils.addDaysToDate(null, -30);
+                int patient_id = (Integer)svc.getMostViewedPatient(monthAgo, 2).get(0)[0];
+                System.out.println(patient_id);
 	}
 	
 	/**
