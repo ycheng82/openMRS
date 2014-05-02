@@ -25,7 +25,7 @@ public interface AccessPatientDAO {
    
    public void saveAccessPatient(AccessPatient accessPatient)throws DAOException;
 
-    public List<Object[]> MostViewedPatient(Date since, int maxResults);
+    public List<Object[]> getMostViewedPatient(Date since, int maxResults);
 
 
 }

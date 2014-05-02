@@ -51,19 +51,18 @@ public class HibernateAccessPatientDAO implements AccessPatientDAO {
       //return accessPatient;
    }
 
-   public List<Object[]> MostViewedPatient(Date since, int maxResults) {
+   public List<Object[]> getMostViewedPatient(Date since, int maxResults) {
   		StringBuffer sb = new StringBuffer();
 		sb.append("SELECT ");
 		sb.append("  patient_id, ");
 		sb.append("  count( * ) AS count ");
 		sb.append("FROM " + TABLE_PATIENT);
+                if (since != null)
+                    sb.append("  WHERE `timestamp` > '" + dfSQL.format(since) + "' ");
 		sb.append(" GROUP BY patient_id ");
                 sb.append("ORDER BY count DESC ");
                 sb.append("LIMIT " + maxResults);
-		
-		//if (since != null)
-		//	sb.append("  WHERE `date` > '" + dfSQL.format(since) + "' ");
-		
+	
 		return executeSQLQuery(sb.toString());
    }
     

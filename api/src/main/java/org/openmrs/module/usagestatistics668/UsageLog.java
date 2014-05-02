@@ -78,9 +78,11 @@ public class UsageLog {
                 ap.setPatient_id(patient.getPersonId());
 	        svc.saveAccessPatient(ap);
                 System.out.println("---------------access patient data saved------------");
+                //testing
                 Date monthAgo = StatsUtils.addDaysToDate(null, -30);
                 int patient_id = (Integer)svc.getMostViewedPatient(monthAgo, 2).get(0)[0];
                 System.out.println(patient_id);
+                //end of testing
 	}
 	
 	/**

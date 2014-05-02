@@ -63,7 +63,7 @@ public class AccessPatientServiceImpl extends BaseOpenmrsService implements Acce
 
         @Override
         public List<Object[]> getMostViewedPatient(Date since, int maxResults) throws APIException {
-            return dao.MostViewedPatient(since, maxResults);
+            return dao.getMostViewedPatient(since, maxResults);
     }
 
 }
