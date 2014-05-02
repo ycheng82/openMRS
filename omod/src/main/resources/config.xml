@@ -49,13 +49,10 @@
         <class>org.openmrs.module.usagestatistics668.advice.PatientServiceAdvice</class>
     </advice>   
    <advice>
-        <point>org.openmrs.api.PatientService</point>
+        <point>org.openmrs.api.EncounterService</point>
         <class>org.openmrs.module.usagestatistics668.advice.EncounterServiceAdvice</class>
    </advice>     
-   <advice>
-        <point>org.openmrs.api.PatientService</point>
-        <class>org.openmrs.module.usagestatistics668.advice.CountingBeforeAdvice</class>
-    </advice>    
+ 
 
    
     <privilege>

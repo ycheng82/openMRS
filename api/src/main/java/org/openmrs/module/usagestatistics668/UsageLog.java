@@ -66,12 +66,16 @@ public class UsageLog {
                 else if (type == Type.VOIDED){
 			ap.setAccess_type("voided");
                 }
+                else if (type == Type.VIEWED){
+			ap.setAccess_type("viewed");
+                }
 
 		// Update the time of the recent event
 		ap.setTimestamp(new Date());
                 ap.setUser_id(user.getUserId());
                 ap.setPatient_id(patient.getPersonId());
 	        svc.saveAccessPatient(ap);
+                System.out.println("---------------access patient data saved------------");
 	}
 	
 	/**
