@@ -20,8 +20,67 @@
   		    http://www.springframework.org/schema/util
   		    http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+
+	<context:component-scan base-package="org.openmrs.module.usagestatistics668.web.controller" />
 	<!-- Add here beans related to the web context -->
-        
+	<!-- ========================= URL mappings ========================== -->
+
+	<bean id="usageStatsUrlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="order">
+			<value>1</value>
+		</property>
+		<property name="mappings">
+			<props>
+				<prop key="module/usagestatistics668/patientAccess.htm">accessPatientController</prop>
+                                <prop key="module/usagestatistics668/encounterAccess.htm">accessEncounterController</prop>
+                                <prop key="module/usagestatistics668/orderAccess.htm">accessOrderController</prop>
+                                <prop key="module/usagestatistics668/visitAccess.htm">accessVisitController</prop>
+                                <prop key="module/usagestatistics668/userAccess.htm">accessUserController</prop>
+                                <prop key="module/usagestatistics668/chart.htm">accessChartController</prop>
+			</props>
+		</property>
+	</bean>    
+        	<!-- ========================= Views ========================= -->
+
+	<bean id="accessPatientView" class="org.openmrs.module.usagestatistics668.web.view.chart.AccessPatientChartView" />
+	
+	<!-- ========================= Controllers ========================= -->
+	
+	<bean id="accessPatientController" class="org.openmrs.module.usagestatistics668.web.controller.ExportableStatsQueryController">
+		<property name="pageViewName">
+			<value>module/usagestatistics668/patientAccess</value>
+		</property>
+	</bean>  
+        <bean id="accessOrderController" class="org.openmrs.module.usagestatistics668.web.controller.ExportableStatsQueryController">
+		<property name="pageViewName">
+			<value>module/usagestatistics668/orderAccess</value>
+		</property>
+	</bean> 
+        <bean id="accessEncounterController" class="org.openmrs.module.usagestatistics668.web.controller.ExportableStatsQueryController">
+		<property name="pageViewName">
+			<value>module/usagestatistics668/encounterAccess</value>
+		</property>
+	</bean> 
+        <bean id="accessVisitController" class="org.openmrs.module.usagestatistics668.web.controller.ExportableStatsQueryController">
+		<property name="pageViewName">
+			<value>module/usagestatistics668/visitAccess</value>
+		</property>
+	</bean> 
+        <bean id="accessUserController" class="org.openmrs.module.usagestatistics668.web.controller.ExportableStatsQueryController">
+		<property name="pageViewName">
+			<value>module/usagestatistics668/userAccess</value>
+		</property>
+	</bean> 
+        <bean id="accessChartController" class="org.openmrs.module.usagestatistics668.web.controller.ChartStatsQueryController">
+		<property name="chartViews">
+			<map>
+				<entry key="patient"><ref bean="accessPatientView" /></entry>
+			</map>
+		</property>
+	</bean>  
+
         <!--
 
     <bean id="basicModuleTabUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
